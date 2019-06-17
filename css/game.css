@@ -4,10 +4,18 @@ html {
   font-size: 0;
 }
 
+body {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  /* SHOW AFTER MEDIA QUARY overflow: hidden; */ 
+}
+
 #world-container {
-  width: calc(100vw - 300px);
   background-color: brown;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex: 8;
 }
 
 #world {
@@ -32,15 +40,24 @@ html {
 }
 
 .blue {
-  /* just so we can understand exactly the structure of pixels */
+  /* just so we can understand exactly the structure of the columns and pixels */
   background-color: blue;
 }
 
 #sidemenu {
-  display: inline-block;
-  position: fixed;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  padding: 50px;
+  font-size: 16px; /* just for placeholder text */
   right: 0;
   height: 100vh;
-  width: 300px;
   background-color: black;
+}
+
+.tool {
+  margin: 0 auto;
+  background-color: white;
+  width: 180px;
+  height: 180px;
 }
