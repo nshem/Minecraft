@@ -11,11 +11,29 @@ html {
 }
 
 #world {
+  display: flex;
+  flex-direction: row;
   width: 100vh;
   height: 100vh;
   margin-left: 50%;
   transform: translateX(-50%);
   background-color: green;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.pixel {
+  background-color: purple;
+  height: calc(100vh / 15);
+  width: calc(100vh / 15);
+}
+
+.blue {
+  /* just so we can understand exactly the structure of pixels */
+  background-color: blue;
 }
 
 #sidemenu {
