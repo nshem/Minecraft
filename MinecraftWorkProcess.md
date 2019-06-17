@@ -4,12 +4,15 @@
 
 ## Work distributing
 
-|                                                              |                                                              | Hilla                                                 | Dvir                                  | Noga |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------- | ---- |
-|                                                              |                                                              |                                                       |                                       |      |
-
-
-------
+|      |                                                              | Hilla                                                        | Dvir                                                  | Noga                                  |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------- |
+|      |                                                              |                                                              |                                                       |                                       |
+| Mon  | * **download typora**<br />* HTML layout<br />* Creating files structure<br />* find icons<br />* creating GIT rep<br />* Landing page (main menu) | * HTML layout<br />* Creating files structure<br />* **download typora** | * **download typora**<br />* Landing page (main menu) | * find icons<br />* creating GIT repo |
+| Tue  |                                                              |                                                              |                                                       |                                       |
+| Wed  |                                                              |                                                              |                                                       |                                       |
+| Thu  |                                                              |                                                              |                                                       |                                       |
+| Fri  |                                                              |                                                              |                                                       |                                       |
+| Sat  |                                                              |                                                              |                                                       |                                       |
 
 
 
