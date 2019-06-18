@@ -8,12 +8,23 @@
     <title>Minecraft main menu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/mainmenu.css">
 </head>
 
 <body>
-    <div id="main-menu">
-        <div id="main-menu-start-game"></div>
-        <div id="main-menu-instructions"></div>
+    <div class="container-fluid" id="main-menu">
+        <!-- center on the x axis  -->
+        <div class="row d-flex justify-content-center">
+            <!-- center items on the  y axis
+            button on block level take all the col width -->
+            <div
+                class="col-xl-2 col-md-4 col-sm-3 col-xs-4 col-6  d-flex flex-column justify-content-center buttons-wrapper">
+                <button type="button" id="btn-menu-start-game" class="btn btn-secondary btn-lg btn-block">Start
+                    game</button>
+                <button type="button" id="btn-menu-instructions"
+                    class="btn btn-secondary btn-lg btn-block">instructions</button>
+            </div>
+        </div>
     </div>
 
 
