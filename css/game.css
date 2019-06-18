@@ -38,6 +38,34 @@ body {
   width: calc(100vh / 15);
 }
 
+.sky {
+  background-color: #8cbffb;
+}
+
+.cloud {
+  background-color: #fff;
+}
+
+.grass {
+  background-image: url('../img/ores/grass.png');
+}
+
+.dirt {
+  background-image: url('../img/ores/dirt.png');
+}
+
+.stone {
+  background-image: url('../img/ores/stone.png')
+}
+
+.wood {
+  background-image: url('../img/ores/wood.png');
+}
+
+.leaf {
+  background-image: url('../img/ores/leaf.jpg');
+}
+
 .blue {
   /* just so we can understand exactly the structure of pixels */
   background-color: blue;
