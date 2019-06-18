@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nogashemer/Minecraft#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.1.4"
   }
 }
