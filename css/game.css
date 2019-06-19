@@ -2,11 +2,24 @@
   :root {
     --world-edge: 100vh;
   }
+  .sidemenu {
+    flex-direction: column;
+  }
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45)), url(../img/all-bg.jpg);
+    background-size: contain;
+    background-repeat: repeat-x;
+  }
 }
 
 @media (orientation: portrait) {
   :root {
     --world-edge: 100vw;
+  }
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../img/ores/dirt.png);
+    background-repeat: repeat repeat;
+    background-size: calc(100%/15);
   }
 }
 
@@ -15,7 +28,6 @@
   margin: 0;
   font-size: 0;
   width: 100vw;
-  align-content: center;
 }
 
 body {
@@ -27,6 +39,7 @@ body {
 #world-container {
   display: flex;
   flex: 5;
+  height: fit-content;
 }
 
 #world {
@@ -87,23 +100,33 @@ body {
   background-image: url('../img/ores/leaf.jpg');
 }
 
-#sidemenu {
+.sidemenu {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   flex: 1;
-  margin: auto;
-  background-color: black;
+}
+
+#held-ore {
+  margin: calc(var(--world-edge) / 24) auto;
+  height: calc(var(--world-edge) / 15);
+  width: calc(var(--world-edge) / 15);
+  border: 1px solid grey;
+  outline: calc(var(--world-edge) / 150) solid #4e4e4e;
+}
+
+#held-ore:hover {
+  height: calc(var(--world-edge) / 15);
+  width: calc(var(--world-edge) / 15);
+  border: 1px solid #f0f0f0;
 }
 
 .tool {
   margin: calc(var(--world-edge) / 24) auto;
-  width: calc(var(--world-edge) / 4);
-  height: calc(var(--world-edge) / 4);
+  height: calc(var(--world-edge) / 10);
+  width: calc(var(--world-edge) / 10);
   /* just for placeholder text */
   background-size: cover;
   background-position: center;
-  border: 5px dotted white;
+  border: 1px white;
 }
 
 .axe {
