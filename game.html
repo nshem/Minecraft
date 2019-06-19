@@ -12,6 +12,25 @@
 </head>
 
 <body>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+          <a type="button" class="btn btn-primary" href="./mainmenu.html">Menu</a>
+        </div>
+        <div class="modal-body">
+          <!-- TODO instruction  -->
+
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="sidemenu"></div>
   <div id="world-container">
     <div id="world">
@@ -274,10 +293,11 @@
   </div>
   <div class="sidemenu">
     <div class="pixel sky" id="held-ore"></div>
-    <div class="tool axe">axe</div>
-    <div class="tool pickaxe">pickaxe</div>
-    <div class="tool shovel">shovel</div>
+    <div class="tool axe"></div>
+    <div class="tool pickaxe"></div>
+    <div class="tool shovel"></div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -287,7 +307,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="./js/entities/world.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/entities/pixel.js"></script>
+  <script src="./js/entities/tool.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
