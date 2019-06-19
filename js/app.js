@@ -5,7 +5,7 @@ const GAME = {
   tools: {
     axe: new Tool("axe", ["wood", "leaf"]),
     pickaxe: new Tool("pickaxe", ["stone"]),
-    shovel: new Tool("shovel", ["dirt"])
+    shovel: new Tool("shovel", ["dirt", "grass"])
   },
   currentOre: undefined,
   currentTool: undefined
