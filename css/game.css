@@ -1,12 +1,27 @@
+@media (orientation: landscape) {
+  :root {
+    --world-edge: 100vh;
+  }
+}
+
+@media (orientation: portrait) {
+  :root {
+    --world-edge: 100vw;
+  }
+}
+
 *, html {
   padding: 0;
   margin: 0;
   font-size: 0;
+  width: 100vw;
+  align-content: center;
 }
 
 body {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 #world-container {
@@ -18,8 +33,9 @@ body {
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 100vh;
-  height: 100vh;
+  width: var(--world-edge);
+  height: var(--world-edge);
+  background-color: green;
   /* for testing */
 }
 
@@ -30,15 +46,16 @@ body {
 
 .pixel {
   background-color: purple;
-  height: calc(100vh / 15);
-  width: calc(100vh / 15);
+  /* for testing */
+  height: calc(var(--world-edge) / 15);
+  width: calc(var(--world-edge) / 15);
   background-size: cover;
   background-position: center;
 }
 
 .pixel:hover {
-  height: calc(100vh / 15);
-  width: calc(100vh / 15);
+  height: calc(var(--world-edge) / 15);
+  width: calc(var(--world-edge) / 15);
   border: 1px solid #f0f0f0;
 }
 
@@ -70,24 +87,19 @@ body {
   background-image: url('../img/ores/leaf.jpg');
 }
 
-.blue {
-  /* just so we can understand exactly the structure of pixels */
-  background-color: blue;
-}
-
 #sidemenu {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 40px;
+  justify-content: center;
   flex: 1;
+  margin: auto;
   background-color: black;
 }
 
 .tool {
-  margin: 12px auto;
-  width: 140px;
-  height: 140px;
-  font-size: 16px;
+  margin: calc(var(--world-edge) / 24) auto;
+  width: calc(var(--world-edge) / 4);
+  height: calc(var(--world-edge) / 4);
   /* just for placeholder text */
   background-size: cover;
   background-position: center;
