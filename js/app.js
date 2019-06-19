@@ -1,7 +1,7 @@
 // Namespaces
 
 const GAME = {
-  ores: ["wood", "plant", "dirt", "stone"],
+  ores: ["wood", "leaf", "dirt", "stone"],
   tools: {
     axe: new Tool("axe", ["wood", "leaf"]),
     pickaxe: new Tool("pickaxe", ["stone"]),
