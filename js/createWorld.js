@@ -4,7 +4,7 @@ let matrixWorld = [
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "stone", "stone", "grass", "dirt", "dirt", "dirt", "dirt"],
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
@@ -16,8 +16,6 @@ let matrixWorld = [
     ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"]
 ]
 
-
-
 function createWorld(matrixWorld) {
     for (let i = 0; i < matrixWorld.length; i++) {
         for (let j = 0; j < matrixWorld[i].length; j++) {
@@ -27,22 +25,58 @@ function createWorld(matrixWorld) {
     }
 }
 
-function createHtmlPixelesFromMatrixWorld(){
-    //TODO create html elements from the matrixWorld
-}
-
 function setpixelTypeToMatrix(pixelType, i, j) {
     if (pixelType === "sky") {
-        matrixWorld[i][j] = new Sky();
+        let pixel = matrixWorld[i][j] = new Sky();
+        pixel["position"] = [i,j];
     } else if (pixelType === "leaf") {
-        matrixWorld[i][j] = new Leaf();
+        let pixel = matrixWorld[i][j] = new Leaf();
+        pixel["position"] = [i,j];
     } else if (pixelType === "wood") {
-        matrixWorld[i][j] = new Wood();
+        let pixel = matrixWorld[i][j] = new Wood();
+        pixel["position"] = [i,j];
     } else if (pixelType === "grass") {
-        matrixWorld[i][j] = new Grass();
+        let pixel = matrixWorld[i][j] = new Grass();
+        pixel["position"] = [i,j];
     } else if (pixelType === "dirt") {
-        matrixWorld[i][j] = new Dirt();
+        let pixel = matrixWorld[i][j] = new Dirt();
+        pixel["position"] = [i,j];
     } else if (pixelType === "stone") {
-        matrixWorld[i][j] = new Stone();
+        let pixel = matrixWorld[i][j] = new Stone();
+        pixel["position"] = [i,j];
     }    
 }
+
+
+function createHtmlPixelesFromMatrixWorld() {
+    let world_Html = $('#world');
+    console.log(world_Html);
+    
+    let current_world = matrixWorld;
+    console.log(current_world);
+    
+    for (let i = 0; i < current_world.length; i++) {
+      // create column 
+      let column = $('<div/>')
+        .addClass('column')
+        .appendTo(world_Html);
+      for (let j = 0; j < current_world[i].length; j++) {
+        let pixelMatrix = current_world[i][j]
+        // create elements inside the column 
+        let pixelType = $('<div/>')
+        .addClass(`pixel ${pixelMatrix.type}`)
+        .appendTo(column);
+      }
+    }
+  }
+
+   // creating world from exteranl file createWorld.js
+  //----------------------------------------------------------------
+  let current_world = matrixWorld;
+  createWorld(current_world);
+  //----------------------------------------------------------------
+
+  // generating world from the matrix world array
+  //----------------------------------------------------------------
+  createHtmlPixelesFromMatrixWorld();
+  //----------------------------------------------------------------
