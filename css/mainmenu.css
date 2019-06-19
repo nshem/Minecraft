@@ -13,7 +13,6 @@
     height: 100vh;
 }
 
-
 @media only screen and (max-width: 1024px) {
     .container-fluid {
         background-image: url("..//img/main_menu/green-mobile.jpg");
@@ -22,7 +21,6 @@
 
     
 }
-
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .btn {
