@@ -12,6 +12,31 @@
 </head>
 
 <body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid" id="main-menu">
         <!-- center on the x axis  -->
         <div class="row d-flex justify-content-center">
@@ -19,10 +44,11 @@
             button on block level take all the col width -->
             <div
                 class="col-xl-2 col-md-4 col-sm-3 col-xs-4 col-6  d-flex flex-column justify-content-center buttons-wrapper">
-                    <a type="button" id="btn-menu-start-game" class="btn btn-secondary btn-lg btn-block" href="./game.html">Start
-                        game</a>
-                    <button type="button" id="btn-menu-instructions"
-                        class="btn btn-secondary btn-lg btn-block">instructions</button>
+                <a type="button" id="btn-menu-start-game" class="btn btn-secondary btn-lg btn-block"
+                    href="./game.html">Start
+                    game</a>
+                <button type="button" id="btn-menu-instructions"
+                    class="btn btn-secondary btn-lg btn-block">instructions</button>
             </div>
         </div>
     </div>
