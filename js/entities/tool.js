@@ -1,10 +1,11 @@
 class Tool {
-  constructor(name,ore) {
-    this.name = name;
-    this.ore = ore;
+  constructor(name,ores) {
+    this.name = name; //string
+    this.ores = ores; //array
   }
 
   canMine(clickedOre) {
-    return this.ore === clickedOre;
+    return this.ores.includes(clickedOre);
   }
 }
+
