@@ -12,7 +12,6 @@ body {
 
 #world-container {
   width: calc(100vw - 300px);
-  background-color: brown;
   display: flex;
   flex: 6;
 }
@@ -24,7 +23,7 @@ body {
   height: 100vh;
   margin-left: 50%;
   transform: translateX(-50%);
-  background-color: green;
+  background-color: green; /* for testing */
 }
 
 .column {
@@ -36,6 +35,14 @@ body {
   background-color: purple;
   height: calc(100vh / 15);
   width: calc(100vh / 15);
+  background-size: cover;
+  background-position: center;
+}
+
+.pixel:hover {
+  height: calc(100vh / 15);
+  width: calc(100vh / 15);
+  border: 1px solid #f0f0f0;
 }
 
 .sky {
@@ -84,8 +91,22 @@ body {
 
 .tool {
   margin: 12px auto;
-  width: 180px;
-  height: 180px;
-  background-color: #fff;
+  width: 140px;
+  height: 140px;
   font-size: 16px; /* just for placeholder text */
+  background-size: cover;
+  background-position: center;
+  border: 5px dotted white;
+}
+
+.axe {
+  background-image: url('../img/tools/axe.png');
+}
+
+.pickaxe {
+  background-image: url('../img/tools/pickaxe.png');
+}
+
+.shovel {
+  background-image: url('../img/tools/shovel.png');
 }
