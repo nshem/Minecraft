@@ -1,4 +1,4 @@
-html {
+*, html {
   padding: 0;
   margin: 0;
   font-size: 0;
@@ -10,20 +10,17 @@ body {
 }
 
 #world-container {
-  width: calc(100vw - 300px);
-  background-color: brown;
   display: flex;
-  flex: 6;
+  flex: 5;
 }
 
 #world {
   display: flex;
   flex-direction: row;
+  margin: auto;
   width: 100vh;
   height: 100vh;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  background-color: green;
+  /* for testing */
 }
 
 .column {
@@ -35,6 +32,14 @@ body {
   background-color: purple;
   height: calc(100vh / 15);
   width: calc(100vh / 15);
+  background-size: cover;
+  background-position: center;
+}
+
+.pixel:hover {
+  height: calc(100vh / 15);
+  width: calc(100vh / 15);
+  border: 1px solid #f0f0f0;
 }
 
 .sky {
@@ -72,19 +77,31 @@ body {
 
 #sidemenu {
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
   padding-top: 40px;
-  right: 0;
-  height: 100vh;
+  flex: 1;
   background-color: black;
 }
 
 .tool {
   margin: 12px auto;
-  width: 180px;
-  height: 180px;
-  background-color: #fff;
+  width: 140px;
+  height: 140px;
   font-size: 16px;
   /* just for placeholder text */
+  background-size: cover;
+  background-position: center;
+  border: 5px dotted white;
+}
+
+.axe {
+  background-image: url('../img/tools/axe.png');
+}
+
+.pickaxe {
+  background-image: url('../img/tools/pickaxe.png');
+}
+
+.shovel {
+  background-image: url('../img/tools/shovel.png');
 }
