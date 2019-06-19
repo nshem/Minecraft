@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2D Minecraft</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/game.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2D Minecraft</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/game.css">
+  </head>
 
 <body>
-
-
   <!-- Modal -->
   <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -25,18 +23,17 @@
         </div>
         <div class="modal-body">
           <!-- TODO instruction  -->
-          
+
         </div>
         <div class="modal-footer">
-          
+
         </div>
       </div>
     </div>
   </div>
-
+  <div class="sidemenu"></div>
   <div id="world-container">
     <div id="world">
-
       <div class="column">
         <div class="pixel sky"></div>
         <div class="pixel sky"></div>
@@ -294,12 +291,13 @@
       </div>
     </div>
   </div>
-  <div id="sidemenu">
-
-    <div class="tool axe">axe</div>
-    <div class="tool pickaxe">pickaxe</div>
-    <div class="tool shovel">shovel</div>
+  <div class="sidemenu">
+    <div class="pixel sky" id="held-ore"></div>
+    <div class="tool axe"></div>
+    <div class="tool pickaxe"></div>
+    <div class="tool shovel"></div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -309,7 +307,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <script src="./js/entities/world.js"></script>
+=======
+  <script src="./js/entities/pixel.js"></script>
+  <script src="./js/entities/tool.js"></script>
+  <script src="./js/app.js"></script>
+>>>>>>> 97f491371344d28621393c323ba94479de827034
   <script src="./js/main.js"></script>
 </body>
 
