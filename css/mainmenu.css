@@ -1,3 +1,14 @@
+tr {
+    padding: 0;
+}
+
+td {
+    border: 1px grey solid;
+    border-collapse: collapse;
+    align-content: flex-start;
+    padding: 4px 0;
+}
+
 .container-fluid {
     width: 100vw;
     height: 100vh;
@@ -11,6 +22,57 @@
 
 .buttons-wrapper {
     height: 100vh;
+}
+
+.tool-icon {
+    display: inline-block;
+    margin: 0 4px;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.axe {
+    background-image: url('../img/tools/axe.png');
+}
+
+.pickaxe {
+    background-image: url('../img/tools/pickaxe.png');
+}
+
+.shovel {
+    background-image: url('../img/tools/shovel.png');
+}
+
+.ore-icon {
+    display: inline-block;
+    margin: 0 4px;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    bottom: 0;
+}
+
+.wood {
+    background-image: url('../img/ores/wood.png');
+}
+
+.leaf {
+    background-image: url('../img/ores/leaf.jpg');
+}
+
+.stone {
+    background-image: url('../img/ores/stone.png');
+}
+
+.dirt {
+    background-image: url('../img/ores/dirt.png');
+}
+
+.grass {
+    background-image: url('../img/ores/grass.png');
 }
 
 @media only screen and (max-width: 1024px) {
