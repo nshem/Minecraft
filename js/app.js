@@ -12,6 +12,7 @@ const GAME = {
 };
 
 const DOM_RELATED = {
+  world: $('#world'),
   pixels: $('.pixel'),
   tools: $('.tool'),
   heldOre: $('#held-ore')

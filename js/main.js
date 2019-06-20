@@ -12,8 +12,11 @@ $(document).ready(function () {
       $("#gameModal").modal("show");
     }
   });
+  
+
 });
 // Main Script (for running commands)
+
 
 DOM_RELATED.pixels.click((e) => {
   // TODO: save the information I am retrieving and manipulate it
