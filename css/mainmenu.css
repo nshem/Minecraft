@@ -80,11 +80,15 @@ td {
         background-image: url("..//img/main_menu/green-mobile.jpg");
         background-color: lightblue;
     }
-
-    
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .btn {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
     .btn {
         font-size: 2em;
     }
