@@ -12,7 +12,7 @@ $(document).ready(function () {
       $("#gameModal").modal("show");
     }
   });
-  
+
 
 });
 // Main Script (for running commands)
