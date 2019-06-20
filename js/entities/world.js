@@ -1,78 +1,63 @@
 class World {
-    constructor(matrix) {
-        this.matrix = matrix;
+    constructor(worldTemplate) {
+        this.matrix = this.createWorld(worldTemplate);
     }
 
-    createWorld(matrixWorld) {
-        for (let i = 0; i < matrixWorld.length; i++) {
-            for (let j = 0; j < matrixWorld[i].length; j++) {
-                let pixelType = matrixWorld[i][j];
-                this.setpixelTypeToMatrix(pixelType, i, j);
+    createWorld(worldTemplate) {
+        let newWorld = worldTemplate;
+        for (let i = 0; i < worldTemplate.length; i++) {
+            for (let j = 0; j < worldTemplate[i].length; j++) {
+                let pixelType = newWorld[i][j];
+                this.setpixelTypeToMatrix(pixelType, i, j, newWorld);
             }
         }
+        return newWorld;
     }
 
-    setpixelTypeToMatrix(pixelType, i, j) {
+    setpixelTypeToMatrix(pixelType, i, j, newWorld) {
         if (pixelType === "sky") {
-            let pixel = matrixWorld[i][j] = new Sky();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky");
             pixel["position"] = [i, j];
         } else if (pixelType === "leaf") {
-            let pixel = matrixWorld[i][j] = new Leaf();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky leaf");
             pixel["position"] = [i, j];
         } else if (pixelType === "wood") {
-            let pixel = matrixWorld[i][j] = new Wood();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky wood");
             pixel["position"] = [i, j];
         } else if (pixelType === "grass") {
-            let pixel = matrixWorld[i][j] = new Grass();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky grass");
             pixel["position"] = [i, j];
         } else if (pixelType === "dirt") {
-            let pixel = matrixWorld[i][j] = new Dirt();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky dirt");
             pixel["position"] = [i, j];
         } else if (pixelType === "stone") {
-            let pixel = matrixWorld[i][j] = new Stone();
+            let pixel = newWorld[i][j] = new Pixel("pixel sky stone");
             pixel["position"] = [i, j];
-        }
-    }
-
-    createHtmlPixelesFromMatrixWorld() {
-        let world_Html = $('#world');
-        let current_world = this.matrix;
-
-        for (let i = 0; i < current_world.length; i++) {
-            // create column 
-            let column = $('<div/>')
-                .addClass('column')
-                .appendTo(world_Html);
-            for (let j = 0; j < current_world[i].length; j++) {
-                let pixelMatrix = current_world[i][j]
-                // create elements inside the column 
-                let pixelType = $('<div/>')
-                    .addClass(`pixel ${pixelMatrix.type}`)
-                    .appendTo(column);
-            }
         }
     }
 }
 
 
-let matrixWorld = [
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "stone", "stone", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "wood", "wood", "wood", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
-    ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"]
-]
+const WORLD_TEMPLATES = {
+    default: [
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "stone", "stone", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "wood", "wood", "wood", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "leaf", "leaf", "leaf", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"],
+        ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"]
+    ]
+}
 
-let current_world = new World(matrixWorld);
-current_world.createWorld(matrixWorld);
-current_world.createHtmlPixelesFromMatrixWorld();
+// let current_matrix_world = new World(matrixWorldTemplate);
+// current_matrix_world.createWorld(matrixWorld);
+// current_matrix_world.createHtmlPixelesFromMatrixWorld();
