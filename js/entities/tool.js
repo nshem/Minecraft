@@ -8,19 +8,26 @@ class Tool {
     // check if tools can mine some ore 
     let isCompatible = this.ores.includes(pixel);
     let canGetTheOre = false;
-    let PositionPixle = GAME.currentPixel.position;
-    let pixelX = PositionPixle[0];
-    let pixely = PositionPixle[1];
-   
+    let gameMatrix = GAME.currentWorld.matrix;
+    let currentPixel = GAME.currentPixel;
+    let pixelX = currentPixel.position[0];
+    let pixely = currentPixel.position[1];
+
     if (pixely === 0) {
       canGetTheOre = true;
     } else {
-      let leftPositionPixel = GAME.currentWorld.matrix[pixelX][pixely - 1];
+      let leftPositionPixel = gameMatrix[pixelX][pixely - 1];
+      // return false if leaf has wood beneath him, and there is a leaf from his side 
+      if (currentPixel.type.slice(-1)[0] === "leaf") {
+        if (gameMatrix[pixelX][pixely + 1].type.slice(-1)[0] === "wood" && (gameMatrix[pixelX - 1][pixely].type.slice(-1)[0] === "leaf" || gameMatrix[pixelX + 1][pixely].type.slice(-1)[0] === "leaf")) {
+            return false;
+        }
+      }
       if (leftPositionPixel.type.slice(-1)[0] === "sky") {
         canGetTheOre = true;
       }
     }
-    
+
     if (isCompatible && canGetTheOre) {
       return true;
     } else {
@@ -68,5 +75,9 @@ class Tool {
       }
     }
     return false;
+  }
+
+  canCutTree() {
+
   }
 }
