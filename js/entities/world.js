@@ -16,22 +16,22 @@ class World {
 
     setpixelTypeToMatrix(pixelType, i, j, newWorld) {
         if (pixelType === "sky") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky"]);
             pixel["position"] = [i, j];
         } else if (pixelType === "leaf") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky leaf");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky", "leaf"]);
             pixel["position"] = [i, j];
         } else if (pixelType === "wood") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky wood");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky", "wood"]);
             pixel["position"] = [i, j];
         } else if (pixelType === "grass") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky grass");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky", "grass"]);
             pixel["position"] = [i, j];
         } else if (pixelType === "dirt") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky dirt");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky", "dirt"]);
             pixel["position"] = [i, j];
         } else if (pixelType === "stone") {
-            let pixel = newWorld[i][j] = new Pixel("pixel sky stone");
+            let pixel = newWorld[i][j] = new Pixel(["pixel", "sky", "stone"]);
             pixel["position"] = [i, j];
         }
     }

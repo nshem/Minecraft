@@ -1,7 +1,7 @@
 // Namespaces
 
 const GAME = {
-  ores: ["wood", "leaf", "dirt", "stone"],
+  ores: ["wood", "leaf", "dirt", "grass", "stone"],
   tools: {
     axe: new Tool("axe", ["wood", "leaf"]),
     pickaxe: new Tool("pickaxe", ["stone"]),
@@ -35,7 +35,11 @@ const DOM_RELATED = {
         $(e.target).removeClass(typeClickedOre);
       }
       //update js matrix
-      GAME.currentPixel.type = `${$(e.target).attr('class')}`;
+      GAME.currentPixel.type = [];
+      let pixelElmClasses = $(e.target).attr('class').split(' ');
+      for (let i=0; i<pixelElmClasses.length; i++) {
+        GAME.currentPixel.type.push(pixelElmClasses[i]);
+      }
     })
   },
 
@@ -54,8 +58,10 @@ const DOM_RELATED = {
         let thisCurrentPixel = currentMaxrix[i][j];
         // create elements inside the column 
         let thisCurrentHtmlPixel = $('<div/>')
-          .addClass(`pixel ${thisCurrentPixel.type}`)
-          .attr(`position`, `${thisCurrentPixel.position}`)
+        for (let i=0; i<thisCurrentPixel.type.length; i++) {
+          thisCurrentHtmlPixel.addClass(`${thisCurrentPixel.type[i]}`)
+        }
+        thisCurrentHtmlPixel.attr(`position`, `${thisCurrentPixel.position}`)
           .appendTo(thisCurrentHtmlColumn);
         DOM_RELATED.addPixelsEventListener(thisCurrentHtmlPixel);
       }

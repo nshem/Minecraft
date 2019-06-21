@@ -8,22 +8,65 @@ class Tool {
     // check if tools can mine some ore 
     let isCompatible = this.ores.includes(pixel);
     let canGetTheOre = false;
-    //get the current pixel 
-    let pixelType = GAME.currentPixel.type.slice(-1);
-
-    // check type of the pixels with split
-  
-    // set canGetTheOre to true if the ore is in the first in the row or have sky index above 
-    if (pixel.position[0] === 0) {
+    let PositionPixle = GAME.currentPixel.position;
+    let pixelX = PositionPixle[0];
+    let pixely = PositionPixle[1];
+   
+    if (pixely === 0) {
       canGetTheOre = true;
-    } else if (pixel.position[0] - 1 === "sky") {
-      canGetTheOre = true;
+    } else {
+      let leftPositionPixel = GAME.currentWorld.matrix[pixelX][pixely - 1];
+      if (leftPositionPixel.type.slice(-1)[0] === "sky") {
+        canGetTheOre = true;
+      }
     }
-
+    
     if (isCompatible && canGetTheOre) {
       return true;
     } else {
+
       return false;
     }
+  }
+
+
+  canBuild(pixel) {
+    let pixelX = $(pixel).attr("position")[0];
+    let pixelY = $(pixel).attr("position")[1];
+    let pixelInMatrix = GAME.currentWorld.matrix[pixelX][pixelY];
+    let pixelInMatrixType = pixelInMatrix.type.slice(-1)[0];
+    let pixelBelowType = GAME.currentWorld.matrix[pixelX][pixelY + 1].type.slice(-1)[0];
+    if (pixelInMatrixType === "sky") {
+      if (pixelY === GAME.currentWorld.matrix[pixelX].length - 1) {
+        return true;
+      } else if (pixelY < GAME.currentWorld.matrix.length - 1) {
+        if (GAME.currentOre === "leaf" || GAME.currentOre === "wood") {
+          if (pixelX === 0) {
+            let pixelToRight = GAME.currentWorld.matrix[pixelX + 1][pixelY];
+            let pixelToRightType = pixelToRight.type.slice(-1)[0];
+            if (pixelToRightType === "leaf" || pixelToRightType === "wood" || GAME.ores.includes(pixelBelowType)) {
+              return true;
+            }
+          } else if (pixelX === GAME.currentWorld.matrix.length - 1) {
+            let pixelToLeft = GAME.currentWorld.matrix[pixelX - 1][pixelY];
+            let pixelToLeftType = pixelToLeft.type.slice(-1)[0];
+            if (pixelToLeftType === "leaf" || pixelToLeftType === "wood" || GAME.ores.includes(pixelBelowType)) {
+              return true;
+            }
+          } else if (pixelX < GAME.currentWorld.matrix.length - 1 && pixelX > 0) {
+            let pixelToLeft = GAME.currentWorld.matrix[pixelX - 1][pixelY];
+            let pixelToLeftType = pixelToLeft.type.slice(-1)[0];
+            let pixelToRight = GAME.currentWorld.matrix[pixelX + 1][pixelY];
+            let pixelToRightType = pixelToRight.type.slice(-1)[0];
+            if (pixelToLeftType === "leaf" || pixelToLeftType === "wood" || pixelToRightType === "leaf" || pixelToRightType === "wood" || GAME.ores.includes(pixelBelowType)) {
+              return true;
+            }
+          }
+        } else if (GAME.ores.includes(pixelBelowType)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
