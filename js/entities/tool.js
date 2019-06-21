@@ -76,8 +76,4 @@ class Tool {
     }
     return false;
   }
-
-  canCutTree() {
-
-  }
 }
