@@ -24,3 +24,10 @@ DOM_RELATED.tools.click((e) => {
   let typeClickedTool = e.target.classList[e.target.classList.length - 1];
   GAME.currentTool = GAME.tools[typeClickedTool];
 });
+
+DOM_RELATED.heldOre.click((e)=> {
+  GAME.currentTool = GAME.tools.build;
+  GAME.currentOre = DOM_RELATED.heldOre.attr('class').split(" ")[DOM_RELATED.heldOre.attr('class').split(" ").length - 1];
+  GAME.tools.build.ore = GAME.currentOre;
+})
+

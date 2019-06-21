@@ -1,4 +1,4 @@
-class Tool {
+class MiningTool {
   constructor(name, ores) {
     this.name = name; //string
     this.ores = ores; //array
@@ -12,7 +12,6 @@ class Tool {
     let currentPixel = GAME.currentPixel;
     let pixelX = currentPixel.position[0];
     let pixely = currentPixel.position[1];
-
     if (pixely === 0) {
       canGetTheOre = true;
     } else {
@@ -37,9 +36,21 @@ class Tool {
   }
 
 
+
+
+  canCutTree() {
+
+  }
+}
+
+class BuildingTool {
+  constructor() {
+    this.ore = undefined;
+  }
+
   canBuild(pixel) {
-    let pixelX = $(pixel).attr("position")[0];
-    let pixelY = $(pixel).attr("position")[1];
+    let pixelX = parseInt($(pixel).attr("position").split(",")[0]);
+    let pixelY = parseInt($(pixel).attr("position").split(",")[1]);
     let pixelInMatrix = GAME.currentWorld.matrix[pixelX][pixelY];
     let pixelInMatrixType = pixelInMatrix.type.slice(-1)[0];
     let pixelBelowType = GAME.currentWorld.matrix[pixelX][pixelY + 1].type.slice(-1)[0];
@@ -75,9 +86,5 @@ class Tool {
       }
     }
     return false;
-  }
-
-  canCutTree() {
-
   }
 }
