@@ -10,16 +10,35 @@
     background-size: contain;
     background-repeat: repeat-x;
   }
+  #world-container {
+    flex: 5;
+  }
+  .sidemenu {
+    flex: 1;
+  }
+  .return-btn {
+    display: none;
+  }
 }
 
 @media (orientation: portrait) {
   :root {
     --world-edge: 100vw;
   }
-  body {
+  .tools-menu {
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../img/ores/dirt.png);
     background-repeat: repeat repeat;
     background-size: calc(100%/15);
+  }
+  .first-menu {
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)), #8cbffb;
+  }
+  body {
+    flex-direction: column;
   }
 }
 
@@ -30,18 +49,17 @@
 
 html {
   width: 100vw;
+  height: 100vh;
 }
 
 body {
   display: flex;
-  flex-wrap: wrap;
+  height: inherit;
   overflow: hidden;
 }
 
 #world-container {
   display: flex;
-  flex: 5;
-  height: fit-content;
 }
 
 #world {
@@ -104,7 +122,6 @@ body {
 
 .sidemenu {
   display: flex;
-  flex: 1;
 }
 
 #held-ore {
