@@ -25,7 +25,7 @@ const DOM_RELATED = {
         let thisCurrentPosition = $(e.target).attr('position');
         console.log(thisCurrentPosition);
         GAME.currentPixel = GAME.currentWorld.matrix[thisCurrentPosition.substring(0, thisCurrentPosition.indexOf(','))][thisCurrentPosition.substring(1 + thisCurrentPosition.indexOf(','))];
-  
+
         console.log(GAME.currentPixel);
         let typeClickedOre = e.target.classList[e.target.classList.length - 1];
         if (GAME.currentTool.canMine(typeClickedOre)) {
@@ -37,7 +37,7 @@ const DOM_RELATED = {
         //update js matrix
         GAME.currentPixel.type = [];
         let pixelElmClasses = $(e.target).attr('class').split(' ');
-        for (let i=0; i<pixelElmClasses.length; i++) {
+        for (let i = 0; i < pixelElmClasses.length; i++) {
           GAME.currentPixel.type.push(pixelElmClasses[i]);
         }
 
@@ -75,7 +75,7 @@ const DOM_RELATED = {
         let thisCurrentPixel = currentMaxrix[i][j];
         // create elements inside the column 
         let thisCurrentHtmlPixel = $('<div/>')
-        for (let i=0; i<thisCurrentPixel.type.length; i++) {
+        for (let i = 0; i < thisCurrentPixel.type.length; i++) {
           thisCurrentHtmlPixel.addClass(`${thisCurrentPixel.type[i]}`)
         }
         thisCurrentHtmlPixel.attr(`position`, `${thisCurrentPixel.position}`)
