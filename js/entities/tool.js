@@ -4,6 +4,14 @@ class MiningTool {
     this.ores = ores; //array
   }
 
+  getPixelType(x, y) {
+    if ((x >= GAME.currentWorld.matrix.length || x < 0) || (y >= GAME.currentWorld.matrix.length || y < 0)) {
+      return false;
+    } else {
+      return GAME.currentWorld.matrix[x][y].type.slice(-1)[0];
+    }
+  }
+
   canMine(pixel) {
     // check if tools can mine some ore 
     let isCompatible = this.ores.includes(pixel);
@@ -12,19 +20,71 @@ class MiningTool {
     let currentPixel = GAME.currentPixel;
     let pixelX = currentPixel.position[0];
     let pixely = currentPixel.position[1];
+    let currentPixelType = this.getPixelType(pixelX, pixely)
+    let leftPositionPixel = this.getPixelType(pixelX, pixely - 1);
+    let rightPositionPixel = this.getPixelType(pixelX, pixely + 1);
+    let leftLeaf = this.getPixelType(pixelX - 1, pixely);
+    let rightLeaft = this.getPixelType(pixelX + 1, pixely);
+    let underleftLeaf = this.getPixelType(pixelX - 1, pixely + 1);
+    let underRightLeaf = this.getPixelType(pixelX + 1, pixely + 1);
     if (pixely === 0) {
       canGetTheOre = true;
     } else {
-      let leftPositionPixel = gameMatrix[pixelX][pixely - 1];
+
       // return false if leaf has wood beneath him, and there is a leaf from his side 
-      if (currentPixel.type.slice(-1)[0] === "leaf") {
-        if (gameMatrix[pixelX][pixely + 1].type.slice(-1)[0] === "wood" && (gameMatrix[pixelX - 1][pixely].type.slice(-1)[0] === "leaf" || gameMatrix[pixelX + 1][pixely].type.slice(-1)[0] === "leaf")) {
-            return false;
+
+      if (currentPixelType === "leaf") {
+        //wood 
+        if (rightPositionPixel == "wood") {
+          alert("wood");
+          if (leftLeaf === "leaf" || rightLeaft === "leaf") {
+            if (underleftLeaf === "sky" || underRightLeaf === "sky") {
+              return false;
+            } else if (leftLeaf === "leaf" || rightLeaft === "leaf") {
+              if (underleftLeaf === "sky" || underRightLeaf === "sky") {
+                return false;
+              }
+            }
+          }
+          // sky 
+        } else if (rightPositionPixel === "sky") {
+          if (leftLeaf === "leaf" && rightLeaft === "leaf") {
+            if (underleftLeaf === "sky" || underRightLeaf === "sky") {
+              return false;
+            } else if (leftLeaf === "leaf" || rightLeaft === "leaf") {
+              if (underleftLeaf === "sky" || underRightLeaf === "sky") {
+                return false;
+              }
+            }
+          }
+         
+          if (leftLeaf) {
+            console.log(leftLeaf);
+            
+            if (underleftLeaf === "sky") {
+              return false;
+            }
+           
+             
+          } else if (rightLeaft) {
+            console.log(rightLeaft);
+            if (underRightLeaf === "sky") {
+              return false;
+            }
+            
+          }
+        } else {
+
         }
       }
-      if (leftPositionPixel.type.slice(-1)[0] === "sky") {
-        canGetTheOre = true;
-      }
+    }
+
+    // check if either side of the leaf there is another leaf and beath him he has sky return false
+
+
+
+    if (leftPositionPixel === "sky") {
+      canGetTheOre = true;
     }
 
     if (isCompatible && canGetTheOre) {
@@ -34,20 +94,13 @@ class MiningTool {
       return false;
     }
   }
-
-
-
-
-  canCutTree() {
-
-  }
 }
+
 
 class BuildingTool {
   constructor() {
     this.ore = undefined;
   }
-
   canBuild(pixel) {
     let pixelX = parseInt($(pixel).attr("position").split(",")[0]);
     let pixelY = parseInt($(pixel).attr("position").split(",")[1]);
