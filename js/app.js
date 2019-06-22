@@ -50,7 +50,6 @@ const DOM_RELATED = {
             GAME.tools.build.ore = undefined;
             DOM_RELATED.heldOre.css("outline", "calc(var(--world-edge) / 150) solid #4e4e4e");
         }
-
       }
     }
   })
