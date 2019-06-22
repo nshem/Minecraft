@@ -25,7 +25,7 @@ DOM_RELATED.tools.click((e) => {
   GAME.currentTool = GAME.tools[typeClickedTool];
 });
 
-DOM_RELATED.heldOre.click((e)=> {
+DOM_RELATED.heldOre.click((e) => {
   GAME.currentTool = GAME.tools.build;
   GAME.currentOre = DOM_RELATED.heldOre.attr('class').split(" ")[DOM_RELATED.heldOre.attr('class').split(" ").length - 1];
   GAME.tools.build.ore = GAME.currentOre;
