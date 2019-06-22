@@ -26,7 +26,7 @@ class MiningTool {
     let belowPixel = pixType(pixelX, pixelY + 1);
     let abovePixel = pixType(pixelX, pixelY - 1);
 
-   
+
     if (currentPixelType === "leaf") {
       // below wood
       if (belowPixel === "wood") {
@@ -38,6 +38,20 @@ class MiningTool {
           return false;
         } // below not sky
       } else if (belowPixel !== "sky") {
+        //edge cases
+        if (pixelX + 1 === GAME.currentWorld.matrix.length) {
+          if (leftPixel !== "sky") {
+            if (pixType(pixelX - 1, pixelY + 1) === 'sky') {
+              return false;
+            }
+          }
+        } else if (pixelX - 1 < 0) {
+          if (rightPixel !== "sky") {
+            if (pixType(pixelX + 1, pixelY + 1) === 'sky') {
+              return false;
+            }
+          }
+        }
         // both 
         if (rightPixel !== "sky" && leftPixel !== "sky") {
           if (pixType(pixelX - 1, pixelY + 1) === "sky" && pixType(pixelX + 1, pixelY + 1) === "sky") {

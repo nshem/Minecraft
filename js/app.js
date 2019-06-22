@@ -25,7 +25,7 @@ const DOM_RELATED = {
         let thisCurrentPosition = $(e.target).attr('position');
         console.log(thisCurrentPosition);
         GAME.currentPixel = GAME.currentWorld.matrix[thisCurrentPosition.substring(0, thisCurrentPosition.indexOf(','))][thisCurrentPosition.substring(1 + thisCurrentPosition.indexOf(','))];
-
+  
         console.log(GAME.currentPixel);
         let typeClickedOre = e.target.classList[e.target.classList.length - 1];
         if (GAME.currentTool.canMine(typeClickedOre)) {
@@ -43,20 +43,20 @@ const DOM_RELATED = {
 
       } else if (GAME.currentTool instanceof BuildingTool) {
         if (GAME.tools.build.ore) {
-          if (GAME.tools.build.canBuild(e.target)) {
-            let pixelX = parseInt($(e.target).attr("position").split(",")[0]);
-            let pixelY = parseInt($(e.target).attr("position").split(",")[1]);
-            let pixelType = $(e.target).attr("class").split(" ").slice(-1)[0];
-            console.log(`pixelType ${pixelType}`);
-            GAME.currentWorld.matrix[pixelX][pixelY].type.push(GAME.tools.build.ore);
-            $(e.target).addClass(GAME.tools.build.ore);
-            DOM_RELATED.heldOre.removeClass(GAME.tools.build.ore)
-            DOM_RELATED.heldOre.addClass("sky");
-            GAME.tools.build.ore = undefined;
-          } else {
-            console.log('can\'t build!');
-          }
+        if (GAME.tools.build.canBuild(e.target)) {
+          let pixelX = parseInt($(e.target).attr("position").split(",")[0]);
+          let pixelY = parseInt($(e.target).attr("position").split(",")[1]);
+          let pixelType = $(e.target).attr("class").split(" ").slice(-1)[0];
+          console.log(`pixelType ${pixelType}`);
+          GAME.currentWorld.matrix[pixelX][pixelY].type.push(GAME.tools.build.ore);
+          $(e.target).addClass(GAME.tools.build.ore);
+          DOM_RELATED.heldOre.removeClass(GAME.tools.build.ore)
+          DOM_RELATED.heldOre.addClass("sky");
+          GAME.tools.build.ore = undefined;
+        } else {
+          console.log('can\'t build!');
         }
+      }
 
       }
     })
