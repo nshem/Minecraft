@@ -16,7 +16,7 @@ class MiningTool {
       canGetTheOre = true;
     } else {
       let leftPositionPixel = gameMatrix[pixelX][pixely - 1];
-      // return false if leaf has wood beneath him, and there is a leaf from his side 
+      // return false if leaf has wood beneath it, and there is a leaf to its side 
       if (currentPixel.type.slice(-1)[0] === "leaf") {
         if (gameMatrix[pixelX][pixely + 1].type.slice(-1)[0] === "wood" && (gameMatrix[pixelX - 1][pixely].type.slice(-1)[0] === "leaf" || gameMatrix[pixelX + 1][pixely].type.slice(-1)[0] === "leaf")) {
             return false;
@@ -33,13 +33,6 @@ class MiningTool {
 
       return false;
     }
-  }
-
-
-
-
-  canCutTree() {
-
   }
 }
 
