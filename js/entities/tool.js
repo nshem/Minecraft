@@ -53,11 +53,11 @@ class BuildingTool {
     let pixelY = parseInt($(pixel).attr("position").split(",")[1]);
     let pixelInMatrix = GAME.currentWorld.matrix[pixelX][pixelY];
     let pixelInMatrixType = pixelInMatrix.type.slice(-1)[0];
-    let pixelBelowType = GAME.currentWorld.matrix[pixelX][pixelY + 1].type.slice(-1)[0];
     if (pixelInMatrixType === "sky") {
       if (pixelY === GAME.currentWorld.matrix[pixelX].length - 1) {
         return true;
       } else if (pixelY < GAME.currentWorld.matrix.length - 1) {
+        let pixelBelowType = GAME.currentWorld.matrix[pixelX][pixelY + 1].type.slice(-1)[0];
         if (GAME.currentOre === "leaf" || GAME.currentOre === "wood") {
           if (pixelX === 0) {
             let pixelToRight = GAME.currentWorld.matrix[pixelX + 1][pixelY];
