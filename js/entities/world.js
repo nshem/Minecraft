@@ -57,7 +57,3 @@ const WORLD_TEMPLATES = {
         ["sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "sky", "grass", "dirt", "dirt", "dirt", "dirt"]
     ]
 }
-
-// let current_matrix_world = new World(matrixWorldTemplate);
-// current_matrix_world.createWorld(matrixWorld);
-// current_matrix_world.createHtmlPixelesFromMatrixWorld();

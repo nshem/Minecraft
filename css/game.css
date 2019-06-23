@@ -75,8 +75,6 @@ body {
   margin: auto;
   width: var(--world-edge);
   height: var(--world-edge);
-  background-color: green;
-  /* for testing */
 }
 
 .column {
@@ -85,8 +83,6 @@ body {
 }
 
 .pixel {
-  background-color: purple;
-  /* for testing */
   height: calc(var(--world-edge) / 15);
   width: calc(var(--world-edge) / 15);
   background-size: cover;
@@ -149,10 +145,9 @@ body {
   margin: calc(var(--world-edge) / 24) auto;
   height: calc(var(--world-edge) / 10);
   width: calc(var(--world-edge) / 10);
-  /* just for placeholder text */
   background-size: cover;
   background-position: center;
-  border: 1px white;
+  border-radius: 50%;
 }
 
 .axe {
@@ -195,4 +190,8 @@ td {
   border-collapse: collapse;
   align-content: flex-start;
   padding: 4px 0;
+}
+
+.chosen-tool {
+  background-color: rgba(255, 255, 0, 0.3);
 }
