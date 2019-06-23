@@ -5,7 +5,7 @@ class MiningTool {
   }
 
   getPixelType(x, y) {
-    if ((x < GAME.currentWorld.matrix.length && x >= 0) && (y <= GAME.currentWorld.matrix.length && y >= 0)) {
+    if ((x < GAME.currentWorld.matrix.length && x >= 0) && (y < GAME.currentWorld.matrix.length && y >= 0)) {
       return GAME.currentWorld.matrix[x][y].type.slice(-1)[0];
     } else {
       return false;
