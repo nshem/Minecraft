@@ -9,6 +9,8 @@
   <link rel="shortcut icon" href="./img/tools/pickaxe.png" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:300,400,500,600,700|Doppio+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./css/game.css">
 </head>
 
@@ -22,20 +24,64 @@
           <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
           <a type="button" class="btn btn-primary" href="./mainmenu.html">Menu</a>
         </div>
+
         <div class="modal-body">
-          <!-- TODO instruction  -->
+          remember: if you go back to main menu, any progress will be lost.
+          <hr>
+          <div class="step">
+            click a tool to select it
+          </div>
+          <span class="tool-icon axe"></span>
+          <span class="tool-icon pickaxe"></span>
+          <span class="tool-icon shovel"></span>
+          <div class="step">
+            use selected tool to collect ores
+
+          </div>
+          <table>
+            <tr>
+              <td class="tool-cell top-cell">
+                <span class="tool-icon axe"></span>
+              </td>
+              <td class="top-cell">
+                <span class="ore-icon wood"></span><span class="ore-icon leaf"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="tool-cell">
+                <span class="tool-icon pickaxe"></span>
+              </td>
+              <td>
+                <span class="ore-icon stone"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="tool-cell">
+                <span class="tool-icon shovel"></span>
+              </td>
+              <td>
+                <span class="ore-icon dirt"></span><span class="ore-icon grass"></span>
+              </td>
+            </tr>
+          </table>
+
+          <div class="step">
+            build!
+          </div>
 
         </div>
-        <div class="modal-footer">
 
-        </div>
+      </div>
+      <div class="modal-footer">
+
       </div>
     </div>
   </div>
+  </div>
   <div class="first-menu sidemenu">
-    <a>
-      <div class="return-btn">x</div>
-    </a>
+    <button type="button" class="btn return-btn" data-toggle="modal" data-target="#gameModal">
+      menu
+    </button>
   </div>
   <div id="world-container">
     <div id="world">

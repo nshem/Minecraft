@@ -9,19 +9,41 @@ td {
     padding: 4px 0;
 }
 
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45)), url(../img/all-bg.jpg);
+    background-size: contain;
+    background-repeat: repeat-x;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 100;
+    overflow: hidden;
+}
+
 .container-fluid {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
     max-height: 100%;
-    background-image: url("..//img/main_menu/background.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
-.buttons-wrapper {
-    height: 100vh;
+.btn {
+    font-size: 1em;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .btn {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .btn {
+        font-size: 2em;
+    }
+}
+
+#logo {
+    margin: auto;
+    width: 100%;
 }
 
 .tool-icon {
@@ -73,23 +95,4 @@ td {
 
 .grass {
     background-image: url('../img/ores/grass.png');
-}
-
-@media only screen and (max-width: 1024px) {
-    .container-fluid {
-        background-image: url("..//img/main_menu/green-mobile.jpg");
-        background-color: lightblue;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .btn {
-        font-size: 2em;
-    }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-    .btn {
-        font-size: 2em;
-    }
 }

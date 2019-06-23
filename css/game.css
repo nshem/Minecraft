@@ -56,6 +56,13 @@ body {
   display: flex;
   height: inherit;
   overflow: hidden;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 100;
+}
+
+.return-btn {
+  color: white;
+  align-self: flex-start;
 }
 
 #world-container {
@@ -158,4 +165,34 @@ body {
 
 .shovel {
   background-image: url('../img/tools/shovel.png');
+}
+
+.tool-icon {
+  display: inline-block;
+  margin: 0 4px;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.ore-icon {
+  display: inline-block;
+  margin: 0 4px;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  bottom: 0;
+}
+
+tr {
+  padding: 0;
+}
+
+td {
+  border: 1px grey solid;
+  border-collapse: collapse;
+  align-content: flex-start;
+  padding: 4px 0;
 }
